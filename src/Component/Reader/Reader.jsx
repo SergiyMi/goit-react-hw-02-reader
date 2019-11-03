@@ -21,14 +21,16 @@ class Reader extends Component {
 
     state = {
         value: this.props.beginValue,
+        min: 1,
+        max: this.props.items.length,
     }
 
     handleIncrement = () => {
         this.setState((prevState) => ({
             value: (
-                this.state.value < this.props.items.length - 1 ? 
-                prevState.value + this.props.step : prevState.value
-                )
+                this.state.value < this.props.items.length -1 ? 
+                prevState.value + this.props.step : prevState.value  
+            )
         }))
     }
 
@@ -37,7 +39,7 @@ class Reader extends Component {
             value: (
                 this.state.value > 0 ? 
                 prevState.value - this.props.step : prevState.value
-                )
+            )
         }))
     }
 
@@ -45,7 +47,11 @@ class Reader extends Component {
         return (
             <div className={styles.reader}>
                 <Controls onIncrement={this.handleIncrement} 
-                onDecrement={this.handleDecrement}/>
+                onDecrement={this.handleDecrement}
+                value={this.state.value}
+                max={this.state.max}
+                min={this.state.min}
+                />
                 <Counter value={this.state.value} len={this.props.items.length}/>
                 <Publication  items={this.props.items} 
                 value={this.state.value}/>

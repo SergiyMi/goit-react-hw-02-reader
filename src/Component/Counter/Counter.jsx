@@ -4,7 +4,7 @@ import styles from './Counter.module.css';
 
 const Counter = ({value, len}) => {
     return (
-        <p className={styles.counter}>{value}/{len - 1}</p>
+        <p className={styles.counter}>{value + 1}/{len}</p>
     )           
 }
 
