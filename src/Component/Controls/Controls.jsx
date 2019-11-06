@@ -2,26 +2,12 @@ import React from 'react';
 
 import styles from './Controls.module.css';
 
-const Controls = ({onIncrement, onDecrement, value, max, min}) => {
+const Controls = ({onIncrement, value, max}) => {
+    const min = 1;
     return (
         <section className={styles.controls}>
-             {(value + 1) === min ? 
-            <>
-            <button type="button" onClick={onDecrement} className={styles.button} disabled>Назад</button>
-            <button type="button" onClick={onIncrement} className={styles.button}>Вперед</button>
-            </>
-            : 
-            value ===  (max - 1) ? 
-            <>
-            <button type="button" onClick={onDecrement} className={styles.button}>Назад</button>
-            <button type="button" onClick={onIncrement} className={styles.button} disabled>Вперед</button>
-            </>
-            : 
-            <>
-            <button type="button" onClick={onDecrement} className={styles.button}>Назад</button>
-            <button type="button" onClick={onIncrement} className={styles.button}>Вперед</button>
-            </>
-            }
+            <button type="button" name="decrement" onClick={onIncrement} className={styles.button} disabled={(value + 1) === min ? true : false}>Назад</button>
+            <button type="button" name="increment" onClick={onIncrement} className={styles.button} disabled={value ===  (max - 1) ? true : false}>Вперед</button>
         </section>
     )
 }
