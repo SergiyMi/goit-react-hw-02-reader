@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './Counter.module.css';
 
-const Counter = ({value, len}) =>
+const Counter = ({pageNumber, len}) =>
     (
-        <p className={styles.counter}>{value + 1}/{len}</p>
+        <p className={styles.counter}>{pageNumber + 1}/{len}</p>
     )           
 
 export default Counter;
