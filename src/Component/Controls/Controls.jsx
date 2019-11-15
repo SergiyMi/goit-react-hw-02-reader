@@ -9,12 +9,12 @@ const Controls = ({onIncrement, pageNumber, max}) => {
             <button 
               type="button" name="decrement" onClick={onIncrement} 
               className={styles.button} 
-              disabled={(pageNumber + 1) === min ? true : false}>Назад
+              disabled={(pageNumber + 1) === min}>Назад
             </button>
             <button 
               type="button" name="increment" onClick={onIncrement} 
               className={styles.button} 
-              disabled={pageNumber ===  (max - 1) ? true : false}>Вперед
+              disabled={pageNumber ===  (max - 1)}>Вперед
                                             </button>
         </section>
     )
